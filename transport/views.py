@@ -24,7 +24,7 @@ from rest_framework import status
 from django.http import HttpResponse
 
 def root_view(request):
-    return HttpResponse("🎉 Welcome to BUI Transport Backend API!")
+    return HttpResponse("🎉 Welcome to Akin's BUI Transport Backend API!")
 
 class OrganizerTransportListView(generics.ListAPIView):
     serializer_class = TransportOptionSerializer
