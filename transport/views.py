@@ -21,6 +21,10 @@ from .serializers import TransportOptionSerializer
 from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework import status
+from django.http import HttpResponse
+
+def root_view(request):
+    return HttpResponse("🎉 Welcome to BUI Transport Backend API!")
 
 class OrganizerTransportListView(generics.ListAPIView):
     serializer_class = TransportOptionSerializer
