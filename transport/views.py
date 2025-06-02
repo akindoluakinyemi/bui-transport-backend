@@ -43,7 +43,7 @@ class TransportOptionCreateView(generics.CreateAPIView):
 class AvailableTransportOptionsView(generics.ListAPIView):
     queryset = TransportOption.objects.filter(approved=True)
     serializer_class = TransportOptionSerializer
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated]
 
 
 class BookingCreateView(generics.CreateAPIView):
