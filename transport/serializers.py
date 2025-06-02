@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import TransportOrganizer, Vehicle, Trip, Booking, TransportOption
+from .models import TransportOrganizer, Vehicle, Booking, TransportOption
 from .models import CustomUser
 
 class RegisterSerializer(serializers.ModelSerializer):
@@ -26,11 +26,6 @@ class TransportOrganizerSerializer(serializers.ModelSerializer):
 class VehicleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Vehicle
-        fields = '__all__'
-
-class TripSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Trip
         fields = '__all__'
 
 

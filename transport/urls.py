@@ -1,7 +1,6 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from .views import (
-    TripViewSet,
     BookingViewSet,
     MyTokenObtainPairView,
     StudentTransportListView,
@@ -18,7 +17,6 @@ from rest_framework_simplejwt.views import TokenRefreshView
 
 # DRF router for ViewSets
 router = DefaultRouter()
-router.register(r'trips', TripViewSet)
 router.register(r'bookings', BookingViewSet)
 
 # URL patterns

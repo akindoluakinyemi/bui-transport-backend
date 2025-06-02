@@ -23,18 +23,11 @@ class Vehicle(models.Model):
     capacity = models.IntegerField()
     features = models.TextField(blank=True)
 
-# Trip listings
-class Trip(models.Model):
-    vehicle = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
-    date = models.DateField()
-    pickup_point = models.CharField(max_length=100)
-    destination = models.CharField(max_length=100)
-    price = models.DecimalField(max_digits=6, decimal_places=2)
-
 # Bookings by students
 class Booking(models.Model):
     student = models.ForeignKey(CustomUser, on_delete=models.CASCADE, limit_choices_to={'role': 'student'})
-    trip = models.ForeignKey(Trip, on_delete=models.CASCADE)
+    transport_option = models.ForeignKey('TransportOption', on_delete=models.CASCADE)
+    trip_date = models.DateField()
     created_at = models.DateTimeField(auto_now_add=True)
     PAYMENT_CHOICES = [
         ('online', 'Online'),
