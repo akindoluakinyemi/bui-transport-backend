@@ -52,7 +52,7 @@ class BookingCreateView(generics.CreateAPIView):
     permission_classes = [IsAuthenticated, IsStudent]
 
     def perform_create(self, serializer):
-        serializer.save(student=self.request.user)
+        booking = serializer.save(student=self.request.user)
 
         if booking.payment_method == 'cash':
             booking.is_paid = False
@@ -60,7 +60,6 @@ class BookingCreateView(generics.CreateAPIView):
         else:
             # Integrate with Paystack/Flutterwave — we'll cover this
             pass
-
 User = get_user_model()
 
 class RegisterView(generics.CreateAPIView):
