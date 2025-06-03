@@ -9,6 +9,8 @@ class CustomUser(AbstractUser):
         ('admin', 'Admin'),
     )
     role = models.CharField(max_length=20, choices=ROLE_CHOICES)
+    def __str__(self):
+        return self.username
 
 # Transport organizer profile linked to the custom user
 class TransportOrganizer(models.Model):
